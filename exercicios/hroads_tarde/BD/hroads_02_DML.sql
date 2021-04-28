@@ -60,3 +60,15 @@ SET NomeClasse = 'Necromancer'
 WHERE idClasse = 5
 ;
 GO
+
+INSERT INTO TiposUsuario (Titulo)
+VALUES	('Administrador')
+		, ('Jogador')
+;
+GO
+
+INSERT INTO Usuario (email, senha, idTipoUsuario)
+VALUES	('admin@admin.com', 'admin', 1)
+		, ('jogador@jogador.com', 'jogador', 2)
+;
+GO
