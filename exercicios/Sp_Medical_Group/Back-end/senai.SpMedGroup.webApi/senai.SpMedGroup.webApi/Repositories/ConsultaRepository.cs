@@ -51,8 +51,43 @@ namespace senai.SpMedGroup.webApi.Repositories
                 .Include(c => c.IdMedicoNavigation)
                 .Include(c => c.IdPacienteNavigation)
                 .Include(c => c.IdSituacaoNavigation)
+                .Select(c => new Consulta()
+                {
+                    IdConsulta = c.IdConsulta,
+                    IdPaciente = c.IdPaciente,
+                    IdSituacao = c.IdSituacao,
+                    DataConsulta = c.DataConsulta,
+                    Descricao = c.Descricao,
+
+                    IdMedicoNavigation = new Medico()
+                    {
+                        IdMedico = c.IdMedicoNavigation.IdMedico,
+                        NomeMedico = c.IdMedicoNavigation.NomeMedico,
+                        IdEspecialidade = c.IdMedicoNavigation.IdEspecialidade,
+
+                        IdEspecialidadeNavigation = new Especialidade()
+                        {
+                            Especialidade1 = c.IdMedicoNavigation.IdEspecialidadeNavigation.Especialidade1
+                        }
+                        
+                    },
+
+                    IdPacienteNavigation = new Paciente()
+                    {
+                        IdPaciente = c.IdPacienteNavigation.IdPaciente,
+                        NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                        Telefone = c.IdPacienteNavigation.Telefone
+                    },
+
+                    IdSituacaoNavigation = new SituacaoConsulta()
+                    {
+                        IdSituacao = c.IdSituacaoNavigation.IdSituacao,
+                        Situacao = c.IdSituacaoNavigation.Situacao
+                    }
+                })
                 .FirstOrDefault(c => c.IdConsulta == id);
         }
+
 
         public List<Consulta> BuscarPorIdPaciente(int id)
         {
@@ -60,8 +95,31 @@ namespace senai.SpMedGroup.webApi.Repositories
                 .Where(c => c.IdPaciente == id)
                 .Include(c => c.IdMedicoNavigation)
                 .Include(c => c.IdSituacaoNavigation)
+                .Select(c => new Consulta()
+                {
+                    IdConsulta = c.IdConsulta,
+                    IdPaciente = c.IdPaciente,
+                    DataConsulta = c.DataConsulta,
+                    Descricao = c.Descricao,
+
+                    IdMedicoNavigation = new Medico()
+                    {
+                        NomeMedico = c.IdMedicoNavigation.NomeMedico,
+
+                        IdEspecialidadeNavigation = new Especialidade()
+                        {
+                            Especialidade1 = c.IdMedicoNavigation.IdEspecialidadeNavigation.Especialidade1
+                        }
+
+                    },
+                    IdSituacaoNavigation = new SituacaoConsulta()
+                    {
+                        Situacao = c.IdSituacaoNavigation.Situacao
+                    }
+                })
                 .ToList();
         }
+
 
         public List<Consulta> BuscarPorIdMedico(int id)
         {
@@ -69,6 +127,26 @@ namespace senai.SpMedGroup.webApi.Repositories
                 .Where(c => c.IdMedico == id && c.IdSituacao == 1 || c.IdSituacao == 3)
                 .Include(c => c.IdPacienteNavigation)
                 .Include(c => c.IdSituacaoNavigation)
+                .Select(c => new Consulta()
+                {
+                    IdConsulta = c.IdConsulta,
+                    IdPaciente = c.IdPaciente,
+                    DataConsulta = c.DataConsulta,
+                    Descricao = c.Descricao,
+
+                    IdPacienteNavigation = new Paciente()
+                    {
+                        IdPaciente = c.IdPacienteNavigation.IdPaciente,
+                        NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                        Telefone = c.IdPacienteNavigation.Telefone
+                    },
+
+                    IdSituacaoNavigation = new SituacaoConsulta()
+                    {
+                        IdSituacao = c.IdSituacaoNavigation.IdSituacao,
+                        Situacao = c.IdSituacaoNavigation.Situacao
+                    }
+                })
                 .ToList();
         }
 
@@ -92,6 +170,40 @@ namespace senai.SpMedGroup.webApi.Repositories
                 .Include(c => c.IdMedicoNavigation)
                 .Include(c => c.IdPacienteNavigation)
                 .Include(c => c.IdSituacaoNavigation)
+                .Select(c => new Consulta()
+                {
+                    IdConsulta = c.IdConsulta,
+                    IdPaciente = c.IdPaciente,
+                    IdSituacao = c.IdSituacao,
+                    DataConsulta = c.DataConsulta,
+                    Descricao = c.Descricao,
+
+                    IdMedicoNavigation = new Medico()
+                    {
+                        IdMedico = c.IdMedicoNavigation.IdMedico,
+                        NomeMedico = c.IdMedicoNavigation.NomeMedico,
+                        IdEspecialidade = c.IdMedicoNavigation.IdEspecialidade,
+
+                        IdEspecialidadeNavigation = new Especialidade()
+                        {
+                            Especialidade1 = c.IdMedicoNavigation.IdEspecialidadeNavigation.Especialidade1
+                        }
+
+                    },
+
+                    IdPacienteNavigation = new Paciente()
+                    {
+                        IdPaciente = c.IdPacienteNavigation.IdPaciente,
+                        NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                        Telefone = c.IdPacienteNavigation.Telefone
+                    },
+
+                    IdSituacaoNavigation = new SituacaoConsulta()
+                    {
+                        IdSituacao = c.IdSituacaoNavigation.IdSituacao,
+                        Situacao = c.IdSituacaoNavigation.Situacao
+                    }
+                })
                 .ToList();
         }
     }
