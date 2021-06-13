@@ -18,19 +18,23 @@ namespace senai.SpMedGroup.webApi.Controllers
     public class ConsultaController : ControllerBase
     {
         private IConsultaRepository _consultaRepository { get; set; }
+        private IPacienteRepository _pacienteRepository { get; set; }
+        private IMedicoRepository _medicoRepository { get; set; }
 
         public ConsultaController()
         {
             _consultaRepository = new ConsultaRepository();
+            _pacienteRepository = new PacienteRepository();
+            _medicoRepository = new MedicoRepository();
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                return Ok(_consultaRepository.ListarTodas().OrderBy(c => c.IdConsulta));
+                return Ok(_consultaRepository.ListarTodas().OrderByDescending(c => c.DataConsulta));
             }
             catch (Exception ex)
             {
@@ -39,7 +43,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        [Authorize(Roles = "2")]
+        //[Authorize(Roles = "2")]
         [HttpGet("Medico")]
         public IActionResult GetByIdMedico()
         {
@@ -47,7 +51,9 @@ namespace senai.SpMedGroup.webApi.Controllers
             {
                 int idUsuario = Convert.ToInt32( HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value );
 
-                return Ok(_consultaRepository.BuscarPorIdMedico(idUsuario).OrderByDescending(c => c.IdConsulta));
+                var Medico = _medicoRepository.BuscarPorIdUsuario(idUsuario);
+
+                return Ok(_consultaRepository.BuscarPorIdMedico(Medico.IdMedico).OrderByDescending(c => c.IdConsulta));
             }
             catch (Exception ex)
             {
@@ -68,7 +74,9 @@ namespace senai.SpMedGroup.webApi.Controllers
             {
                 int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(id => id.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                return Ok(_consultaRepository.BuscarPorIdPaciente(idUsuario).OrderByDescending(c => c.IdConsulta));
+                var paciente = _pacienteRepository.BuscarPorIdUsuario(idUsuario);
+
+                return Ok(_consultaRepository.BuscarPorIdPaciente(paciente.IdPaciente).OrderByDescending(c => c.IdConsulta));
             }
             catch (Exception ex)
             {
@@ -81,7 +89,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -96,7 +104,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Consulta novoConsulta)
         {
@@ -129,7 +137,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpPut("Adm/{id}")]
         public IActionResult UpdateDataSituacao(int id, Consulta consultaAtualizado)
         {

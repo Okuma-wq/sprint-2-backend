@@ -35,9 +35,9 @@ namespace senai.SpMedGroup.webApi.Repositories
             ctx.SaveChanges();
         }
 
-        public Paciente BuscarPorId(int id)
+        public Paciente BuscarPorIdUsuario(int id)
         {
-            return ctx.Pacientes.FirstOrDefault(c => c.IdPaciente == id);
+            return ctx.Pacientes.FirstOrDefault(c => c.IdUsuario == id);
         }
 
         public void Cadastrar(Paciente novoPaciente)
@@ -49,7 +49,7 @@ namespace senai.SpMedGroup.webApi.Repositories
 
         public void Deletar(int id)
         {
-            ctx.Pacientes.Remove(BuscarPorId(id));
+            ctx.Pacientes.Remove(BuscarPorIdUsuario(id));
 
             ctx.SaveChanges();
         }

@@ -26,11 +26,11 @@ namespace senai.SpMedGroup.webApi.Repositories
             ctx.SaveChanges();
         }
 
-        public Medico BuscarPorId(int id)
+        public Medico BuscarPorIdUsuario(int id)
         {
             return ctx.Medicos
                 .Include(m => m.IdEspecialidadeNavigation)
-                .FirstOrDefault(c => c.IdMedico == id);
+                .FirstOrDefault(c => c.IdUsuario == id);
         }
 
         public void Cadastrar(Medico novoMedico)
@@ -42,7 +42,7 @@ namespace senai.SpMedGroup.webApi.Repositories
 
         public void Deletar(int id)
         {
-            ctx.Medicos.Remove(BuscarPorId(id));
+            ctx.Medicos.Remove(BuscarPorIdUsuario(id));
 
             ctx.SaveChanges();
         }

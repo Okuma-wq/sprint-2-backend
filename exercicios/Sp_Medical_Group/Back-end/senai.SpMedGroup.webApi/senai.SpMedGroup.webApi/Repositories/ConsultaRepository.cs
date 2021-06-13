@@ -99,6 +99,7 @@ namespace senai.SpMedGroup.webApi.Repositories
                 {
                     IdConsulta = c.IdConsulta,
                     IdPaciente = c.IdPaciente,
+                    IdMedico = c.IdMedico,
                     DataConsulta = c.DataConsulta,
                     Descricao = c.Descricao,
 
@@ -124,13 +125,14 @@ namespace senai.SpMedGroup.webApi.Repositories
         public List<Consulta> BuscarPorIdMedico(int id)
         {
             return ctx.Consulta
-                .Where(c => c.IdMedico == id && c.IdSituacao == 1 || c.IdSituacao == 3)
+                .Where(c => c.IdMedico == id && (c.IdSituacao == 1 || c.IdSituacao == 3))
                 .Include(c => c.IdPacienteNavigation)
                 .Include(c => c.IdSituacaoNavigation)
                 .Select(c => new Consulta()
                 {
                     IdConsulta = c.IdConsulta,
                     IdPaciente = c.IdPaciente,
+                    IdMedico = c.IdMedico,
                     DataConsulta = c.DataConsulta,
                     Descricao = c.Descricao,
 
@@ -195,6 +197,7 @@ namespace senai.SpMedGroup.webApi.Repositories
                     {
                         IdPaciente = c.IdPacienteNavigation.IdPaciente,
                         NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                        DataNascimento = c.IdPacienteNavigation.DataNascimento,
                         Telefone = c.IdPacienteNavigation.Telefone
                     },
 

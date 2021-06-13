@@ -23,7 +23,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -44,7 +44,7 @@ namespace senai.SpMedGroup.webApi.Controllers
         {
             try
             {
-                return Ok(_medicoRepository.BuscarPorId(id));
+                return Ok(_medicoRepository.BuscarPorIdUsuario(id));
             }
             catch (Exception ex)
             {

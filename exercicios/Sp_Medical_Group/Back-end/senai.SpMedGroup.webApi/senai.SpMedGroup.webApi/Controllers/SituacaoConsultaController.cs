@@ -23,7 +23,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             _situacaoConsultaRepository = new SituacaoConsultaRepository();
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {

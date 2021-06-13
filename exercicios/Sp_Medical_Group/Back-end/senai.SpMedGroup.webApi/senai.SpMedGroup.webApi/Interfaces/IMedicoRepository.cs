@@ -10,7 +10,7 @@ namespace senai.SpMedGroup.webApi.Interfaces
     {
         List<Medico> Listar();
 
-        Medico BuscarPorId(int id);
+        Medico BuscarPorIdUsuario(int id);
 
         void Cadastrar(Medico novoMedico);
 
