@@ -28,7 +28,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -43,7 +43,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "2")]
+        [Authorize(Roles = "2")]
         [HttpGet("Medico")]
         public IActionResult GetByIdMedico()
         {
@@ -53,7 +53,7 @@ namespace senai.SpMedGroup.webApi.Controllers
 
                 var Medico = _medicoRepository.BuscarPorIdUsuario(idUsuario);
 
-                return Ok(_consultaRepository.BuscarPorIdMedico(Medico.IdMedico).OrderByDescending(c => c.IdConsulta));
+                return Ok(_consultaRepository.BuscarPorIdMedico(Medico.IdMedico).OrderByDescending(c => c.DataConsulta));
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace senai.SpMedGroup.webApi.Controllers
 
                 var paciente = _pacienteRepository.BuscarPorIdUsuario(idUsuario);
 
-                return Ok(_consultaRepository.BuscarPorIdPaciente(paciente.IdPaciente).OrderByDescending(c => c.IdConsulta));
+                return Ok(_consultaRepository.BuscarPorIdPaciente(paciente.IdPaciente).OrderByDescending(c => c.DataConsulta));
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -104,7 +104,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Consulta novoConsulta)
         {
@@ -137,7 +137,7 @@ namespace senai.SpMedGroup.webApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpPut("Adm/{id}")]
         public IActionResult UpdateDataSituacao(int id, Consulta consultaAtualizado)
         {

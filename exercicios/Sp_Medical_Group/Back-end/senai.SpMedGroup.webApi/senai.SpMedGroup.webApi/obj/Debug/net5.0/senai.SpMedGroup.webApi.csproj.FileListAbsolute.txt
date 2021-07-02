@@ -65,5 +65,3 @@ C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Grou
 C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Group\Back-end\senai.SpMedGroup.webApi\senai.SpMedGroup.webApi\obj\Debug\net5.0\ref\senai.SpMedGroup.webApi.dll
 C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Group\Back-end\senai.SpMedGroup.webApi\senai.SpMedGroup.webApi\obj\Debug\net5.0\senai.SpMedGroup.webApi.pdb
 C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Group\Back-end\senai.SpMedGroup.webApi\senai.SpMedGroup.webApi\obj\Debug\net5.0\senai.SpMedGroup.webApi.genruntimeconfig.cache
-C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Group\Back-end\senai.SpMedGroup.webApi\senai.SpMedGroup.webApi\bin\Debug\net5.0\xunit.abstractions.dll
-C:\Users\pedro\Desktop\Repositório\sprint-2-back-end\exercicios\Sp_Medical_Group\Back-end\senai.SpMedGroup.webApi\senai.SpMedGroup.webApi\bin\Debug\net5.0\xunit.core.dll

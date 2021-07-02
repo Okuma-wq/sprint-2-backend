@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mCT3HLa32RVzOUeNdL48UhjCPbpXwloHRSe7nLES30hkoW0fKYA74fWeC2GFrEVIH7QXavkLTVYq8zJjsnArtQ==",
+  "dgSpecHash": "gkG5dNELLZSiEIMDRsO04n5VewsQTMBtQgU4pcrwqox49zWbG7h8hyDzZmKjzC6XZHSEFtSQuLW2Jk25pQj52g==",
   "success": true,
   "projectFilePath": "C:\\Users\\pedro\\Desktop\\Repositório\\sprint-2-back-end\\exercicios\\Sp_Medical_Group\\Back-end\\senai.SpMedGroup.webApi\\senai.SpMedGroup.webApi\\senai.SpMedGroup.webApi.csproj",
   "expectedPackageFiles": [
@@ -143,9 +143,7 @@
     "C:\\Users\\pedro\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512"
+    "C:\\Users\\pedro\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
